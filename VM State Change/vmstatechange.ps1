@@ -51,7 +51,8 @@ workflow vmStateChange
       -ServicePrincipal `
       -TenantId $tenantId `
       -ApplicationId $applicationId `
-      -CertificateThumbprint $thumbprint 
+      -CertificateThumbprint $thumbprint `
+      -SubscriptionId $subscriptionId
 
     # Define POST body for call to get token
     $body = @{
