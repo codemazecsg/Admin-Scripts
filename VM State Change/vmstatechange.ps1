@@ -84,11 +84,13 @@ workflow vmStateChange
         # Is there anything to do?
         if ($shutdown -and ($vm.PowerState -eq 'VM deallocated'))
         {
-          Write-Output "Not shutting down $vm.Name.  VM already deallocated."
+          $displayName = $vm.Name
+          Write-Output "Not shutting down $displayName. VM already deallocated."
         }
         elseif (-not $Shutdown -and ($vm.PowerState -eq 'VM running'))
         {
-          Write-Output "Not starting $vm.Name.  VM already running."
+          $displayName = $vm.Name
+          Write-Output "Not starting $displayName. VM already running."
         }
         else
         {
